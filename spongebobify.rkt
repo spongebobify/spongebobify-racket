@@ -2,7 +2,6 @@
 
 (provide spongebobify)
 
-(define (spongebobify s) (let ([up #t]) (foldl (lambda (a result)
-                          (set! up (not up))
-                          (string-append result (string (if up (char-upcase a) (char-downcase a)))))
-                        "" (string->list s))))
+(define (spongebobify s) (foldl (lambda (el index result)
+                                        (string-append result (string (if (= 1 (modulo index 2)) (char-upcase el) (char-downcase el)))))
+                                "" (string->list s) (stream->list (in-range (string-length s)))))
