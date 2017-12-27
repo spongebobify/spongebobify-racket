@@ -9,3 +9,5 @@ Usage
     > (require "spongebobify.rkt")
     > (spongebobify "hello world")
     "hElLo wOrLd"
+    (spongebobify "hello world" #f)
+    "HeLlO WoRlD"
